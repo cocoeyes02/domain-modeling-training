@@ -14,13 +14,13 @@ package システム {
   usecase "担当FPへキャッシュフロー表について\n閲覧・コメント・更新できる権限を付与する" as authorizeForCashFlowList
   usecase "担当FPへ個人バランスシートについて\n閲覧・コメント・更新できる権限を付与する" as authorizeForPersonalBalanceSheet
   usecase "担当FPへメッセージや画像を送る" as sendMessageForAssingedFp
+  usecase "プロジェクトにアサインするFPを募集・決定する" as proposalForProject
 
   usecase "プロジェクトを作成・削除する" as operateProject
   usecase "プロジェクトに紐づく\nライフプランを作成・削除をする" as operateLifePlan
   usecase "ライフプランにひもづく\nライフイベント表を作成・更新・削除をする" as operateLifeEventList
   usecase "ライフプランにひもづく\nキャッシュフロー表を作成・更新・削除をする" as operateCashFlowList
   usecase "ライフプランにひもづく\n個人バランスシートを作成・更新・削除をする" as operatePersonalBalanceSheet
-  usecase "プロジェクトにアサインするFPを募集・決定する" as proposalForProject
 
   usecase "相談依頼人が許可した場合に限り\nライフイベント表を閲覧・コメント・更新する" as operateLimitedlyForLifeEventList
   usecase "相談依頼人が許可した場合に限り\nキャッシュフロー表を閲覧・コメント・更新する" as operateLimitedlyForCashFlowList
@@ -34,6 +34,7 @@ client --> authorizeForLifeEventList
 client --> authorizeForCashFlowList
 client --> authorizeForPersonalBalanceSheet
 client --> sendMessageForAssingedFp
+client --> proposalForProject
 
 operateLimitedlyForLifeEventList <-- assignedFp
 operateLimitedlyForCashFlowList <-- assignedFp
@@ -45,7 +46,6 @@ lifeOwner --> operateLifePlan
 lifeOwner --> operateLifeEventList
 lifeOwner --> operateCashFlowList
 lifeOwner --> operatePersonalBalanceSheet
-lifeOwner --> proposalForProject
 
 requestProposalForProject <-- fp
 writeLicenseAndCareer <-- fp
